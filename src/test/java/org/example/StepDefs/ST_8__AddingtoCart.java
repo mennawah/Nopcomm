@@ -5,9 +5,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import static org.example.StepDefs.TestBase.driver;
 public class ST_8__AddingtoCart {
+    SoftAssert softAssert = new SoftAssert();
 
     @And("navigates to gift card page")
     public void AddingtoCart() {
@@ -26,6 +28,13 @@ public class ST_8__AddingtoCart {
     @Then("user can see the selected product in the shopping cart")
     public void seeProduct(){
         Assert.assertTrue(driver.findElement(By.id("updatecart")).isDisplayed());
+
+        Boolean textfound = driver.getPageSource().contains("shopping cart");
+        System.out.println("MW");
+        System.out.print(textfound);
+        softAssert.assertTrue(textfound);
+        softAssert.assertAll();
+
     }
 
 }

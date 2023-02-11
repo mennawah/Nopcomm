@@ -1,5 +1,5 @@
 @smoke
-Feature:     checking login functionality
+Feature:  checking login functionality
   Scenario: user can login with valid data
     Given   user go to login
     When    user login with "valid" "Mennatest@gmail.com" and "Valid@2023"
